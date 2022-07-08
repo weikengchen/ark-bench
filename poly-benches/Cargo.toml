@@ -18,27 +18,13 @@ criterion = "0.3.1"
 rayon = { version = "1", optional = true }
 
 [features]
-default = []
+default = ["parallel", "asm"]
 parallel = ["ark-ff/parallel", "rayon", "ark-poly/parallel", "ark-std/parallel" ]
+asm = ["ark-ff/asm"]
 
 [[bench]]
 name = "fft"
 path = "benches/fft.rs"
-harness = false
-
-[[bench]]
-name = "dense_uv_polynomial"
-path = "benches/dense_uv_polynomial.rs"
-harness = false
-
-[[bench]]
-name = "dense_multilinear"
-path = "benches/dense_multilinear.rs"
-harness = false
-
-[[bench]]
-name = "sparse_multilinear"
-path = "benches/sparse_multilinear.rs"
 harness = false
 
 [lib]
